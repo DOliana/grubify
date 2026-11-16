@@ -70,4 +70,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+// Lightweight endpoint for Container Apps liveness/readiness probes
+app.MapGet("/healthz", () => Results.Ok(new { status = "healthy" }));
+
 app.Run();
